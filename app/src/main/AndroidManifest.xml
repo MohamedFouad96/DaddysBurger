@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tech.digitalcraft.daddysburger">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DaddysBurger"
+        android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode"/>
+
+
+        <activity android:name=".View.Activites.Menu.QrReader"  android:theme="@style/Theme.AppCompat.Splash"></activity>
+        <activity android:name=".View.Activites.Restaurant.OrderMeals" />
+        <activity android:name=".View.Activites.Menu.Meals" />
+        <activity android:name=".View.Activites.Restaurant.RestaurantOrders" />
+        <activity android:name=".View.Activites.Ordering.Payment" />
+        <activity android:name=".View.Activites.Ordering.Ordering" />
+        <activity
+            android:name=".View.Activites.Menu.MealDetails"
+            android:theme="@style/Theme.DaddysBurger.NoActionBar" />
+        <activity
+            android:name=".View.Activites.MainActivity"
+            android:label="@string/title_activity_main" />
+        <activity
+            android:name=".View.Activites.Splash"
+            android:theme="@style/Theme.AppCompat.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".View.Activites.UserAuth.Startup"
+            android:theme="@style/Theme.AppCompat.Splash" />
+        <activity
+            android:name=".View.Activites.UserAuth.Login"
+            android:theme="@style/Theme.AppCompat.Splash" />
+        <activity
+            android:name=".View.Activites.UserAuth.Register"
+            android:theme="@style/Theme.AppCompat.Splash" />
+    </application>
+
+</manifest>
