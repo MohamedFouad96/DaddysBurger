@@ -49,7 +49,6 @@ public enum Shared {
         mEditor.putBoolean(CHECK_KEY, false);
         mEditor.putString(TOKEN_KEY,"");
         mEditor.putString(USERNAME_KEY,"");
-        mEditor.putBoolean(ONE_TIME_CHECKER_KEY,false);
 
         mEditor.commit();
 
