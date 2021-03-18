@@ -28,6 +28,7 @@ public class RetrofitClientAdapter {
     public static Call<LoginResponse> activation(String key  , String phoneId)
     {
 
+
         return mRetrofitClient.activation(key , phoneId);
 
     }
@@ -41,11 +42,11 @@ public class RetrofitClientAdapter {
     }
 
 
-    public static Call<Void> register(String username , String email , String phone  , String pass)
+    public static Call<Void> register(String username , String email , String phone  , String pass , int type)
     {
 
 
-        return mRetrofitClient.Register(Shared.get.ACTIVATION_TOKEN,new Register(username , username, email , pass,1));
+        return mRetrofitClient.Register(Shared.get.ACTIVATION_TOKEN,new Register(username , username, email , pass,type));
 
     }
 

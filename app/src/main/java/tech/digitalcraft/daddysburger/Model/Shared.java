@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import tech.digitalcraft.daddysburger.Controller.Interfaces.RefreshViewPager;
@@ -19,6 +20,8 @@ public enum Shared {
 
     get;
 
+    // TODO: Change BASE_URL to remote URL from visual studio Conveyor extension
+
     public String CHECK_KEY = "check" ,
      ONE_TIME_CHECKER_KEY = "checkEmail" ,
     USERNAME_KEY = "username" ,
@@ -28,13 +31,14 @@ public enum Shared {
     USER_TYPE = "userType",
     USERNAME = "" ,
     TOKEN = "",
+    BASE_URL="http://192.168.1.7:45455",
             PHONE = "" ,
                     PASSWORD = "";
 
 
-    public List<Menu> mMenu;
-    public List<Meal> mCheckoutMeals;
-    public List<OrderMeals> mOrderMeals;
+    public List<Menu> mMenu = new ArrayList<>();
+    public List<Meal> mCheckoutMeals = new ArrayList<>();
+    public List<OrderMeals> mOrderMeals = new ArrayList<>();
     public Meal mMeal;
     public RefreshViewPager mRefreshViewPager;
     private DatabaseHelper databaseHelper;

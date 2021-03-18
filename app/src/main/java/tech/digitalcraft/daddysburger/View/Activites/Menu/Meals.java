@@ -32,37 +32,37 @@ public class Meals extends AppCompatActivity {
         mMealsLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
 
 
-        switch (TYPE)
-        {
-            case 0:
-            {
-                setTitle("بيف برجر");
-                mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(0).getMeals() , this,0);
+        if (Shared.get.mMenu.size() > 0) {
 
-            }
+            switch (TYPE) {
+                case 0: {
+                    setTitle("بيف برجر");
+                    mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(0).getMeals(), this, 0);
+
+                }
                 break;
-            case 1: {
-                setTitle("ساندوتش فراخ");
-                mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(1).getMeals(), this,0);
-            }
+                case 1: {
+                    setTitle("ساندوتش فراخ");
+                    mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(1).getMeals(), this, 0);
+                }
                 break;
-            case 2: {
-                setTitle("هوت دوج");
-                mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(2).getMeals(), this,0);
-            }
+                case 2: {
+                    setTitle("هوت دوج");
+                    mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(2).getMeals(), this, 0);
+                }
                 break;
-            case 3: {
-                setTitle("اطباق جانبيه");
-                mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(3).getMeals(), this,0);
-            }
+                case 3: {
+                    setTitle("اطباق جانبيه");
+                    mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(3).getMeals(), this, 0);
+                }
                 break;
+            }
+
+            mealsReyclerView.setLayoutManager(mMealsLayoutManager);
+            mealsReyclerView.setAdapter(mMealsRecyclerviewAdapter);
+
+
         }
-
-        mealsReyclerView.setLayoutManager(mMealsLayoutManager);
-        mealsReyclerView.setAdapter(mMealsRecyclerviewAdapter);
-
-
-
 
     }
 }

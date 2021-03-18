@@ -11,7 +11,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/login_button_shape"
         android:backgroundTint="@color/yellow_200"
@@ -24,8 +23,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/textView2"
@@ -141,7 +139,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
+    <RadioGroup
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/customer"
+        android:orientation="horizontal"
+        android:theme="@style/Theme.AppCompat.Light"
+        app:layout_constraintBottom_toTopOf="@+id/register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password">
 
+        <RadioButton
+            android:id="@+id/customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Customer" />
+
+        <RadioButton
+            android:id="@+id/waiter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waiter" />
+
+        <RadioButton
+            android:id="@+id/delivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delivery" />
+    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

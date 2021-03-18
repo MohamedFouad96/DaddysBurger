@@ -62,8 +62,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
 
-
-        holder.clientName.setText(mOrders.get(position).getClientName());
+        String sp[] = mOrders.get(position).getClientName().split(" ");
+        holder.clientName.setText(sp[0]);
 
         if (mOrders.get(position).getOrderTypeId() == 1)
             holder.address.setText("طاولة رقم " +mOrders.get(position).getTableId());

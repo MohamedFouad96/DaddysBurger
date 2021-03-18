@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements RefreshViewPager 
     ViewPager viewPager;
     ViewPagerAdapter sectionsPagerAdapter;
     BottomNavigationView mBottomNavigationView;
-
+    MenuItem qr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +137,8 @@ public class MainActivity extends AppCompatActivity implements RefreshViewPager 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.appbar_menu , menu);
+        qr = menu.findItem(R.id.qr);
+        qr.setVisible(true);
         return super.onCreateOptionsMenu(menu);
     }
 

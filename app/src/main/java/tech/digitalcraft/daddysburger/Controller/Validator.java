@@ -9,7 +9,7 @@ public class Validator {
     private Matcher matcher;
 
     private static final String USERNAME_PATTERN = "^(?=.{4,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$";
-    private static final String PASSWORD_PATTERN = "^(?=.{8,24}$)(?=.*[!@#$%^&*])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$";
+    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
     public Validator(){
         pattern = Pattern.compile(USERNAME_PATTERN);
         pattern1 = Pattern.compile(PASSWORD_PATTERN);

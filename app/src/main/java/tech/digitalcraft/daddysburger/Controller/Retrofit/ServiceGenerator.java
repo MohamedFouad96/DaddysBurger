@@ -2,6 +2,7 @@ package tech.digitalcraft.daddysburger.Controller.Retrofit;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import tech.digitalcraft.daddysburger.Model.Shared;
 
 /**
  * Created by mohamedfouad on 10/12/18.
@@ -11,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
 
 
-    public static String BASE_URL = "http://bsnextdeveloping-001-site2.itempurl.com";
+    public static String BASE_URL = Shared.get.BASE_URL;
 
     static Retrofit.Builder builder = new Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -28,6 +29,10 @@ public class ServiceGenerator {
         builder = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL);
+
+
+        retrofit = builder.build();
+
 
     }
 

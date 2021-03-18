@@ -42,7 +42,7 @@ public class RestaurantOrders extends AppCompatActivity implements ResturantOrde
     OrdersAdapter mOrdersAdapter;
     RecyclerView.LayoutManager mOrdersLayoutManager;
     ProgressBar progressBar;
-
+    MenuItem qr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,7 @@ public class RestaurantOrders extends AppCompatActivity implements ResturantOrde
         }
 
         mProgressDialog = new ProgressDialog(this,R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+
 
         mProgressDialog.setMessage("جاري تسجيل الخروج...");
         mProgressDialog.setCancelable(false);

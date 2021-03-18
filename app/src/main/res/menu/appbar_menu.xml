@@ -8,6 +8,7 @@
 
     <item android:title="QR"
         android:id="@+id/qr"
+        android:visible="false"
         android:icon="@drawable/ic__qr_code_scanner"
         app:showAsAction="always"/>
 

@@ -6,11 +6,15 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,16 +22,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tech.digitalcraft.daddysburger.Controller.Retrofit.RetrofitClientAdapter;
+import tech.digitalcraft.daddysburger.Controller.Retrofit.ServiceGenerator;
 import tech.digitalcraft.daddysburger.Controller.Validator;
 import tech.digitalcraft.daddysburger.R;
 
 public class Register extends AppCompatActivity {
 
     private String USERNAME,PASSWORD,EMAIL,PHONE;
+    private int USER_TYPE = 1;
 
     private EditText Username, Password,Phone,Email;
     private Button Register;
     private ImageButton Back;
+    private RadioGroup typeSelection;
 
     private ProgressDialog mProgressDialog;
 
@@ -44,6 +51,7 @@ public class Register extends AppCompatActivity {
         Phone = findViewById(R.id.phone);
         Register = findViewById(R.id.register);
         Back = findViewById(R.id.back);
+        typeSelection = findViewById(R.id.type);
 
         mProgressDialog = new ProgressDialog(this,R.style.Theme_AppCompat_DayNight_Dialog_Alert);
 
@@ -63,8 +71,10 @@ public class Register extends AppCompatActivity {
                 EMAIL = Email.getText().toString();
                 PHONE = Phone.getText().toString();
                 PASSWORD = Password.getText().toString();
+                USER_TYPE = typeSelection.getCheckedRadioButtonId() == R.id.customer ? 1 : typeSelection.getCheckedRadioButtonId() == R.id.waiter ? 2 : 3;
 
 
+                System.out.println("Type: " + USER_TYPE);
                 if (USERNAME.isEmpty() || EMAIL.isEmpty() || PHONE.isEmpty() || PASSWORD.isEmpty())
                 {
                     mProgressDialog.dismiss();
@@ -90,7 +100,7 @@ public class Register extends AppCompatActivity {
 
     public void RegisterReq()
     {
-        RetrofitClientAdapter.register(USERNAME , EMAIL , PHONE , PASSWORD).enqueue(new Callback<Void>() {
+        RetrofitClientAdapter.register(USERNAME , EMAIL , PHONE , PASSWORD, USER_TYPE).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
 
@@ -104,11 +114,21 @@ public class Register extends AppCompatActivity {
                         finish();
                     }
                     break;
+                    case 400:
+                    {
+                        Toast.makeText(Register.this, "هذا الحساب موجود بالفعل", Toast.LENGTH_LONG).show();
+                    }
+                    break;
                     default:
                     {
 
+                        Toast.makeText(Register.this, "حدث خطأ ما", Toast.LENGTH_LONG).show();
 
-                        System.out.println("Response: "+response.body().toString());
+                        try {
+                            System.out.println("Response: "+response.errorBody().string() + " Code: " + response.code());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                     break;
                 }
@@ -119,7 +139,7 @@ public class Register extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
                 mProgressDialog.dismiss();
 
-                Log.d("LOGIN_LOG_ERROR", t.getMessage());
+                Log.d("LOGIN_LOG_ERROR", t.getMessage() + " " + ServiceGenerator.BASE_URL);
                 Toast.makeText(Register.this, "لا يوجد اتصال بشبكة الانترنت", Toast.LENGTH_SHORT).show();
 
             }

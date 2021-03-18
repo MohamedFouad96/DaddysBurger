@@ -18,6 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tech.digitalcraft.daddysburger.Controller.Retrofit.RetrofitClientAdapter;
+import tech.digitalcraft.daddysburger.Controller.Retrofit.ServiceGenerator;
 import tech.digitalcraft.daddysburger.Controller.SqlLite.DatabaseHelper;
 import tech.digitalcraft.daddysburger.Model.APIs.LoginResponse;
 import tech.digitalcraft.daddysburger.Model.Shared;
@@ -146,6 +147,8 @@ public class Splash extends AppCompatActivity {
     public void activeOneTime()
     {
 
+        ServiceGenerator.changeBaseUrl("http://bsnextdeveloping-001-site2.itempurl.com");
+
         RetrofitClientAdapter.activation(KEY , androidId).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
@@ -173,6 +176,8 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 dialog.show();
+
+
                 Log.d("LOGIN_LOG_ERROR", t.getMessage());
                 Toast.makeText(Splash.this, "لا يوجد اتصال بشبكة الانترنت", Toast.LENGTH_SHORT).show();
             }

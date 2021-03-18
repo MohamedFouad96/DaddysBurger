@@ -35,7 +35,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table "+ TABLE_1 +" ( ID INTEGER ,  NAME TEXT , IMG INTEGER , PRICE FLOAT , DESCRIPTION TEXT , CATEGORY_ID INTEGER , QTY INTEGER)");
 
 
-
     }
 
     @Override

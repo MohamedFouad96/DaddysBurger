@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import tech.digitalcraft.daddysburger.Controller.Retrofit.ServiceGenerator;
+import tech.digitalcraft.daddysburger.Model.Shared;
 import tech.digitalcraft.daddysburger.R;
 
 public class Startup extends AppCompatActivity {
@@ -21,6 +23,7 @@ public class Startup extends AppCompatActivity {
         Login = findViewById(R.id.login);
         Register = findViewById(R.id.register);
 
+        ServiceGenerator.changeBaseUrl(Shared.get.BASE_URL);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
