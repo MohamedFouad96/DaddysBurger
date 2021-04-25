@@ -31,7 +31,7 @@ public enum Shared {
     USER_TYPE = "userType",
     USERNAME = "" ,
     TOKEN = "",
-    BASE_URL="http://192.168.1.7:45455",
+    BASE_URL="http://192.168.1.4:45456",
             PHONE = "" ,
                     PASSWORD = "";
 

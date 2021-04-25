@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -98,8 +100,12 @@ public class RestaurantOrders extends AppCompatActivity implements ResturantOrde
                     break;
                     default:
                     {
-
-                        System.out.println("code: " + response.code());
+                        try {
+                            Log.d("StatusCode: ",response.code()+"");
+                            Log.d("Error: ",response.errorBody().string());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         Toast.makeText(RestaurantOrders.this, "صلاحية الجلسة انتهت, اعد تسجيل الدخول", Toast.LENGTH_LONG).show();
                     //    Shared.get.Logout(RestaurantOrders.this);
                     }
