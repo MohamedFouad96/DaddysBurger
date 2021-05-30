@@ -36,23 +36,23 @@ public class Meals extends AppCompatActivity {
 
             switch (TYPE) {
                 case 0: {
-                    setTitle("بيف برجر");
+                    setTitle("المشويات");
                     mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(0).getMeals(), this, 0);
 
                 }
                 break;
                 case 1: {
-                    setTitle("ساندوتش فراخ");
+                    setTitle("الساندوتش");
                     mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(1).getMeals(), this, 0);
                 }
                 break;
                 case 2: {
-                    setTitle("هوت دوج");
+                    setTitle("المقبلات");
                     mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(2).getMeals(), this, 0);
                 }
                 break;
                 case 3: {
-                    setTitle("اطباق جانبيه");
+                    setTitle("المشروبات");
                     mMealsRecyclerviewAdapter = new MealsItemsAdapter(Shared.get.mMenu.get(3).getMeals(), this, 0);
                 }
                 break;

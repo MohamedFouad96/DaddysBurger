@@ -35,7 +35,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_beef_burger" />
+                android:src="@drawable/bbq" />
 
             <ImageButton
                 android:id="@+id/chicken"
@@ -44,7 +44,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_chicken_burger" />
+                android:src="@drawable/sandwich" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,7 +61,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_hotdog" />
+                android:src="@drawable/salad" />
 
             <ImageButton
                 android:id="@+id/sidedishes"
@@ -71,7 +71,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_chicken_wings" />
+                android:src="@drawable/drinks" />
         </LinearLayout>
     </LinearLayout>
 
